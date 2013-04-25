@@ -10,7 +10,7 @@
 // defines
 #define MY_UUID { 0x74, 0x19, 0xF2, 0x5C, 0x82, 0x1B, 0x4B, 0xD8, 0x93, 0xD5, 0x98, 0x7E, 0x31, 0x15, 0xA8, 0xB6 }
 PBL_APP_INFO(MY_UUID,
-             "Fireflies", "Little Hiccup",
+             "Strong Fireflies", "Joshua Lund",
              1, 0, /* App version */
              RESOURCE_ID_IMAGE_MENU_ICON,
              APP_INFO_WATCH_FACE);
@@ -120,7 +120,7 @@ void update_particle(int i) {
     }
   }
 
-  particles[i].ds += -(particles[i].size - particles[i].goal_size)/random_in_rangef(1000.0F, 5000.0F);
+  particles[i].ds += -(particles[i].size - particles[i].goal_size)/random_in_rangef(0.5F, 3.0F);
   if(abs(particles[i].size - particles[i].goal_size) > 0.01) {
     particles[i].size += particles[i].ds;
   }
@@ -309,7 +309,7 @@ void handle_tick(AppContextRef ctx, PebbleTickEvent *t) {
   (void)t;
   (void)ctx;
   kickoff_display_time();
-  app_timer_send_event(ctx, 12000 /* milliseconds */, COOKIE_DISPERSE_TIMER);
+  app_timer_send_event(ctx, 48000 /* milliseconds */, COOKIE_DISPERSE_TIMER);
 }
 
 void init_particles() {
